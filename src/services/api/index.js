@@ -1,13 +1,10 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://meowfacts.herokuapp.com/';
+/* Pode colocar a baseURL aqui também*/
 
 export const api = axios.create({
-    baseURL: BASE_URL,
-    timeout: 10000,
-    // headers: {
-    //   'X-Custom-Header': 'foobar',
-    //   'Content-Type': 'application/json',
-    //   'Accept': 'application/json'
-    // }
-  });
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});

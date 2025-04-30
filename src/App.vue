@@ -1,19 +1,23 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { getCatFact } from './services/api/catFactService.js';
+import { getCatImage } from './services/api/catImageService.js';
 import Card from './components/Card.vue';
 
 const catFact = ref('');
+const catImage = ref('');
 const loading = ref(false);
 
-const fetchCatFact = async () => {
+const fetchData = async () => {
   loading.value = true;
   catFact.value = await getCatFact(); 
+  catImage.value = await getCatImage()
   loading.value = false;
 };
 
+
 onMounted(() => {
-  fetchCatFact();
+  fetchData();
 });
 </script>
 
@@ -21,7 +25,7 @@ onMounted(() => {
   <div class="flex flex-col items-center justify-center h-screen bg-gray-200">
     <h1 class="font-bold text-2xl">Fato sobre Gatos 🐱</h1>
     <p v-if="loading">Carregando...</p>
-    <Card v-else :msg="catFact" class="m-5"/>
+    <Card v-else :msg="catFact" :img="catImage" class="m-5"/>
   </div>
 </template>
 
