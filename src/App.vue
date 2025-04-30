@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { getCatFact } from './services/api/catFactService.js';
 import { getCatImage } from './services/api/catImageService.js';
 import Card from './components/Card.vue';
+import CustomButton from './components/CustomButton.vue'
 
 const catFact = ref('');
 const catImage = ref('');
@@ -15,7 +16,6 @@ const fetchData = async () => {
   loading.value = false;
 };
 
-
 onMounted(() => {
   fetchData();
 });
@@ -26,6 +26,7 @@ onMounted(() => {
     <h1 class="font-bold text-2xl">Fato sobre Gatos 🐱</h1>
     <p v-if="loading">Carregando...</p>
     <Card v-else :msg="catFact" :img="catImage" class="m-5"/>
+    <CustomButton @click="fetchData" :text="`Carregar novo fato`" />
   </div>
 </template>
 
