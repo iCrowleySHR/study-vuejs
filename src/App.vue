@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { getCatFact } from './services/api/catFactService.js';
+import Card from './components/Card.vue';
 
 const catFact = ref('');
 const loading = ref(false);
@@ -20,10 +21,9 @@ onMounted(() => {
   <div class="flex flex-col items-center justify-center h-screen bg-gray-200">
     <h1 class="font-bold text-2xl">Fato sobre Gatos 🐱</h1>
     <p v-if="loading">Carregando...</p>
-    <p v-else>{{ catFact }}</p>
+    <Card v-else :msg="catFact" class="m-5"/>
   </div>
 </template>
 
 <style scoped>
-/* Aqui você pode adicionar o estilo específico do seu componente */
 </style>
