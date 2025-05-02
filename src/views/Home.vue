@@ -4,14 +4,17 @@ import { getCatFact } from '../services/api/catFactService.js';
 import { getCatImage } from '../services/api/catImageService.js';
 import Card from '../components/Card.vue';
 import CustomButton from '../components/CustomButton.vue'
+import { useRoute } from 'vue-router'
 
 const catFact = ref('');
 const catImage = ref('');
 const loading = ref(false);
+const route = useRoute()
+const lang = route.params.lang
 
 const fetchData = async () => {
   loading.value = true;
-  catFact.value = await getCatFact();
+  catFact.value = await getCatFact(lang);
   catImage.value = await getCatImage()
   loading.value = false;
 };
