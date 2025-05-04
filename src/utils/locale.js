@@ -1,35 +1,20 @@
 const LANG_MAP = {
-    'en': 'eng-us',
-    'cs': 'ces-cz',
-    'de': 'ger-de',
-    'bn': 'ben-in',
-    'es': 'esp-mx',
-    'es-ES': 'esp-es',
-    'ru': 'rus-ru',
-    'pt': 'por-br',
-    'fil': 'tl-fil',
-    'tl': 'tl-fil',
-    'uk': 'ukr-ua',
-    'ur': 'urd-ur',
-    'it': 'ita-it',
-    'zh': 'zho-tw',
-    'zh-TW': 'zho-tw',
-    'ko': 'kor-ko'
+    'en': 'en-US',
+    'cs': 'cs-CZ',
+    'de': 'de-DE',
+    'bn': 'bn-IN',
+    'es': 'es-MX',
+    'ru': 'ru-RU',
+    'pt': 'pt-BR',
+    'fil': 'fil-PH',
+    'uk': 'uk-UA',
+    'ur': 'ur-PK',
+    'it': 'it-IT',
+    'zh': 'zh-TW',
+    'ko': 'ko-KR'
 };
 
-const availableLocales = Object.keys(LANG_MAP)
-
 export function detectBrowserLocale() {
-    const browserLang = navigator.language || navigator.userLanguage
-    const langCode = availableLocales.includes(browserLang)
-        ? browserLang
-        : browserLang.split('-')[0]
-    return availableLocales.includes(langCode) ? langCode : 'en'
-
+    const userLang = (navigator.language || navigator.userLanguage || 'en-US').split('-')[0];
+    return LANG_MAP[userLang] || LANG_MAP['en']; 
 }
-
-export function isValidLocale(locale) {
-    return availableLocales.includes(locale)
-}
-
-export { LANG_MAP, availableLocales }
