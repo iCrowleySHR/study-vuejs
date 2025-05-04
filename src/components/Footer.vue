@@ -23,7 +23,7 @@ const localeOptions = ref([
 
 <template>
   <footer class="bg-white rounded-lg shadow-sm dark:bg-gray-800  ">
-    <div class="w-full mx-auto py-4 flex flex-row justify-between items-center container ">
+    <div class="w-full mx-auto py-4 flex flex-row justify-between items-center container px-4">
       <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         Feito com 💙 para <br>
         a minha Katotona.
