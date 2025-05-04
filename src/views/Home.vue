@@ -30,7 +30,7 @@ watch(locale, () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center h-screen bg-gray-200">
+  <div class="flex flex-col items-center justify-center min-h-[90vh] h-auto py-10  bg-gray-200">
     <h1 class="font-bold text-2xl">{{ t('title') }}</h1>
     <p v-if="loading" class="m-5">{{ t('description') }}</p>
     <template v-else>

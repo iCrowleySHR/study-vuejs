@@ -18,3 +18,5 @@ export function detectBrowserLocale() {
     const userLang = (navigator.language || navigator.userLanguage || 'en-US').split('-')[0];
     return LANG_MAP[userLang] || LANG_MAP['en']; 
 }
+
+export { LANG_MAP }
